@@ -3,7 +3,7 @@
 const int reverse = 6, neutral = 0, first = 1, second = 2, third = 3, fourth = 4, fifth = 5;
 const int maxSpeed[7] = {0, 30, 50, 60, 90, 150 , 20};
 const int minSpeed[7] = {0,  0, 20, 30, 40,  50 ,  0};
-const int forward = 1, backward = -1;
+const int forward = 1, backward = -1, info = 1, turnedOn = 2, turnedOff = 3, setGear = 4, setSpeed = 5, progExit = 6;
 
 class CCar
 {

@@ -6,6 +6,7 @@
 #include <stdlib.h>
 #include <iostream>
 #include <string>
+#include <cctype>
 using namespace std;
 
 void printProgramFunction()
@@ -25,20 +26,28 @@ int main()
 	int commandNum = 0, value;
 	string command, direction;
 	CCar car;
-	while (commandNum != 6)
+	while (commandNum != progExit)
 	{
 		cout << "Input command: ";
 		cin >> commandNum;
-		if (commandNum == 1)
+		if (!isdigit(commandNum))
 		{
+			cin.clear();//Восстановили поток
+			cin.ignore(cin.rdbuf()->in_avail());//Почистили поток
+		}
+
+		if (commandNum == info)
+		{
+			direction = "neutral";
 			command = "Off";
 			if (car.IsEngineTurnedOn())
 			{
 				command = "On";
 			}
+
 			cout << "Speed: " << car.GetSpeed() << " Gear: " << car.GetGear() << " Direction: " << car.GetDir() << " IsEngineTurnedOn: " << command;
 		}
-		if (commandNum == 2)
+		if (commandNum == turnedOn)
 		{
 			if (car.TurnOnEngine())
 			{
@@ -49,7 +58,7 @@ int main()
 				cout << "I can't turned on engine";
 			}
 		}
-		if (commandNum == 3)
+		if (commandNum == turnedOff)
 		{
 			if (car.TurnOffEngine())
 			{		
@@ -61,7 +70,7 @@ int main()
 				
 			}
 		}
-		if (commandNum == 4)
+		if (commandNum == setGear)
 		{
 			cout << "Enter gear(1 - first, 2 - second, 3 - third, 4 - fouth, 5 - fifth, 6 - reverse, 0 - neutral: ";
 			cin >> value;
@@ -75,7 +84,7 @@ int main()
 				cout << "I can't change gear!";
 			}
 		}
-		if (commandNum == 5)
+		if (commandNum == setSpeed)
 		{
 			cout << "Enter speed: ";
 			cin >> value;
