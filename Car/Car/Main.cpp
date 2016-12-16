@@ -23,14 +23,12 @@ int main()
 {
 	printProgramFunction();
 	int commandNum = 0, value;
-	string command;
-	
+	string command, direction;
 	CCar car;
 	while (commandNum != 6)
 	{
 		cout << "Input command: ";
 		cin >> commandNum;
-
 		if (commandNum == 1)
 		{
 			command = "Off";
@@ -40,7 +38,6 @@ int main()
 			}
 			cout << "Speed: " << car.GetSpeed() << " Gear: " << car.GetGear() << " Direction: " << car.GetDir() << " IsEngineTurnedOn: " << command;
 		}
-
 		if (commandNum == 2)
 		{
 			if (car.TurnOnEngine())
@@ -49,10 +46,9 @@ int main()
 			}
 			else
 			{
-				cout << "Car already turnedOn";
+				cout << "I can't turned on engine";
 			}
 		}
-
 		if (commandNum == 3)
 		{
 			if (car.TurnOffEngine())
@@ -61,7 +57,7 @@ int main()
 			}
 			else
 			{
-				cout << "Error(Gear -> neutral, Speed -> 0, engine -> TurnedOn)";
+				cout << "I can't turned off engine";
 				
 			}
 		}
@@ -76,7 +72,7 @@ int main()
 			}
 			else
 			{
-				cout << "Engine(1-6) -> TurnedOn, Speed should be in the correct range";
+				cout << "I can't change gear!";
 			}
 		}
 		if (commandNum == 5)
@@ -90,11 +86,10 @@ int main()
 			}
 			else
 			{
-				cout << "Speed should be in the correct range";			
+				cout << "I can't change speed!";			
 			}
 		}
 		cout << endl;
-
 	}
 	return 0;
 }
