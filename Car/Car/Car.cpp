@@ -2,17 +2,13 @@
 #include "Car.h"
 #include <cstdlib>
 
-
-
 CCar::CCar(void) : m_engineIsTurnedOn(false), m_speed(0), m_gear(NEUTRAL), m_direction(NEUTRAL)
 {
 }
 
-
 CCar::~CCar(void)
 {
 }
-
 
 bool CCar::TurnOnEngine()
 {
@@ -27,7 +23,6 @@ bool CCar::TurnOnEngine()
 	}
 }
 
-
 bool CCar::TurnOffEngine()
 {
 	if (m_engineIsTurnedOn && m_gear == NEUTRAL && m_speed == 0)
@@ -40,7 +35,6 @@ bool CCar::TurnOffEngine()
 		return false;
 	}
 }
-
 
 bool CCar::CheckSpeed(int gear, int speed)
 {
@@ -76,7 +70,6 @@ bool CCar::CheckSpeed(int gear, int speed)
 	SetDir(FORWARD);
 	return true;
 }
-
 
 bool CCar::SetGear(int gear)
 {
@@ -120,7 +113,6 @@ bool CCar::SetGear(int gear)
 		return false;
 	}
 }
-
 
 bool CCar::SetSpeed(int speed)
 {
@@ -168,7 +160,6 @@ int CCar::GetSpeed() const
 {
 	return m_speed;
 }
-
 
 bool CCar::IsEngineTurnedOn() const
 {
