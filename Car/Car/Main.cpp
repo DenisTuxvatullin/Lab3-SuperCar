@@ -38,7 +38,6 @@ int main()
 
 		if (commandNum == info)
 		{
-			direction = "neutral";
 			command = "Off";
 			if (car.IsEngineTurnedOn())
 			{
