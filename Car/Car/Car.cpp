@@ -4,7 +4,7 @@
 
 
 
-CCar::CCar(void) : m_engineIsTurnedOn(false), m_speed(0), m_gear(neutral), m_direction(neutral)
+CCar::CCar(void) : m_engineIsTurnedOn(false), m_speed(0), m_gear(NEUTRAL), m_direction(NEUTRAL)
 {
 }
 
@@ -30,7 +30,7 @@ bool CCar::TurnOnEngine()
 
 bool CCar::TurnOffEngine()
 {
-	if (m_engineIsTurnedOn && m_gear == neutral && m_speed == 0)
+	if (m_engineIsTurnedOn && m_gear == NEUTRAL && m_speed == 0)
 	{
 		m_engineIsTurnedOn = false;
 		return true;
@@ -51,7 +51,7 @@ bool CCar::CheckSpeed(int gear, int speed)
 		{
 			return false;
 		}
-		SetDir(neutral);
+		SetDir(NEUTRAL);
 		return true;
 	}
 
@@ -60,20 +60,20 @@ bool CCar::CheckSpeed(int gear, int speed)
 		return true;
 
 	}
-	if (speed < minSpeed[gear])
+	if (speed < MIN_SPEED[gear])
 	{
 		return false;
 	}
-	if (speed > maxSpeed[gear])
+	if (speed > MAX_SPEED[gear])
 	{
 		return false;
 	}
-	if (gear == reverse)
+	if (gear == REVERSE)
 	{
-		SetDir(backward);
+		SetDir(BACKWARD);
 		return true;
 	}
-	SetDir(forward);
+	SetDir(FORWARD);
 	return true;
 }
 
@@ -87,16 +87,16 @@ bool CCar::SetGear(int gear)
 	if (!m_engineIsTurnedOn)
 		return false;
 	
-	if (m_gear == neutral)// на нейтралке нельзя менять передачу если скорость не равна 0
+	if (m_gear == NEUTRAL)// на нейтралке нельзя менять передачу если скорость не равна 0
 	{
 		if (m_speed != 0)
 		{
 			return false;
 		}
 	}
-	if (m_gear == reverse || m_gear == first)//с первой на заднюю только на 0 и наоборот
+	if (m_gear == REVERSE || m_gear == FIRST)//с первой на заднюю только на 0 и наоборот
 	{
-		if (gear == reverse  || gear == first )
+		if (gear == REVERSE || gear == FIRST)
 		{
 			if (m_speed != 0)
 			{
@@ -127,7 +127,7 @@ bool CCar::SetSpeed(int speed)
 	if (m_speed == speed)
 		return true;
 
-	if (m_gear == neutral)//на нейтралке только уменьшение скорости 
+	if (m_gear == NEUTRAL)//на нейтралке только уменьшение скорости 
 	{
 		if (m_speed > speed && speed >= 0)
 		{

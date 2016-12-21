@@ -1,9 +1,9 @@
 #pragma once
 
-const int reverse = 6, neutral = 0, first = 1, second = 2, third = 3, fourth = 4, fifth = 5;
-const int maxSpeed[7] = {0, 30, 50, 60, 90, 150 , 20};
-const int minSpeed[7] = {0,  0, 20, 30, 40,  50 ,  0};
-const int forward = 1, backward = -1, info = 1, turnedOn = 2, turnedOff = 3, setGear = 4, setSpeed = 5, progExit = 6;
+const int REVERSE = 6, NEUTRAL = 0, FIRST = 1, SECOND = 2, THIRD = 3, FOUTH = 4, FIFTH = 5;
+const int MAX_SPEED[7] = {0, 30, 50, 60, 90, 150 , 20};
+const int MIN_SPEED[7] = {0,  0, 20, 30, 40,  50 ,  0};
+const int FORWARD = 1, BACKWARD = -1, INFO = 1, TURNED_ON = 2, TURNED_OFF = 3, SET_GEAR = 4, SET_SPEED = 5, PROG_EXIT = 6;
 
 class CCar
 {

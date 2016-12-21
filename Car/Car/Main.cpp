@@ -9,7 +9,7 @@
 #include <cctype>
 using namespace std;
 
-void printProgramFunction()
+void PrintProgramFunction()
 {
 	cout << "1. Info" << endl;
 	cout << "2. EngineOn" << endl;
@@ -22,11 +22,11 @@ void printProgramFunction()
 
 int main()
 {
-	printProgramFunction();
+	PrintProgramFunction();
 	int commandNum = 0, value;
 	string command, direction;
 	CCar car;
-	while (commandNum != progExit)
+	while (commandNum != PROG_EXIT)
 	{
 		cout << "Input command: ";
 		cin >> commandNum;
@@ -36,7 +36,7 @@ int main()
 			cin.ignore(cin.rdbuf()->in_avail());//Почистили поток
 		}
 
-		if (commandNum == info)
+		if (commandNum == INFO)
 		{
 			command = "Off";
 			if (car.IsEngineTurnedOn())
@@ -46,7 +46,7 @@ int main()
 
 			cout << "Speed: " << car.GetSpeed() << " Gear: " << car.GetGear() << " Direction: " << car.GetDir() << " IsEngineTurnedOn: " << command;
 		}
-		if (commandNum == turnedOn)
+		if (commandNum == TURNED_ON)
 		{
 			if (car.TurnOnEngine())
 			{
@@ -57,7 +57,7 @@ int main()
 				cout << "I can't turned on engine";
 			}
 		}
-		if (commandNum == turnedOff)
+		if (commandNum == TURNED_OFF)
 		{
 			if (car.TurnOffEngine())
 			{		
@@ -69,7 +69,7 @@ int main()
 				
 			}
 		}
-		if (commandNum == setGear)
+		if (commandNum == SET_GEAR)
 		{
 			cout << "Enter gear(1 - first, 2 - second, 3 - third, 4 - fouth, 5 - fifth, 6 - reverse, 0 - neutral: ";
 			cin >> value;
@@ -83,7 +83,7 @@ int main()
 				cout << "I can't change gear!";
 			}
 		}
-		if (commandNum == setSpeed)
+		if (commandNum == SET_SPEED)
 		{
 			cout << "Enter speed: ";
 			cin >> value;
