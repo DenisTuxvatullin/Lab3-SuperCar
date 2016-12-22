@@ -35,7 +35,6 @@ int main()
 			cin.clear();//Восстановили поток
 			cin.ignore(cin.rdbuf()->in_avail());//Почистили поток
 		}
-
 		if (commandNum == INFO)
 		{
 			command = "Off";
@@ -43,7 +42,6 @@ int main()
 			{
 				command = "On";
 			}
-
 			cout << "Speed: " << car.GetSpeed() << " Gear: " << car.GetGear() << " Direction: " << car.GetDir() << " IsEngineTurnedOn: " << command;
 		}
 		if (commandNum == TURNED_ON)
