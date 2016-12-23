@@ -17,10 +17,7 @@ bool CCar::TurnOnEngine()
 		m_engineIsTurnedOn = true;
 		return true;
 	}
-	else
-	{
-		return false;
-	}
+	return false;
 }
 
 bool CCar::TurnOffEngine()
@@ -30,10 +27,7 @@ bool CCar::TurnOffEngine()
 		m_engineIsTurnedOn = false;
 		return true;
 	}
-	else
-	{
-		return false;
-	}
+	return false;
 }
 
 bool CCar::CheckSpeed(int gear, int speed)
@@ -41,7 +35,7 @@ bool CCar::CheckSpeed(int gear, int speed)
 
 	if (speed == 0)//Только 1 задняя и нейтраль могут быть 0
 	{
-		if (gear != 0 && gear != 1 && gear != 6)
+		if (gear != NEUTRAL && gear != FIRST && gear != REVERSE)
 		{
 			return false;
 		}
@@ -49,19 +43,15 @@ bool CCar::CheckSpeed(int gear, int speed)
 		return true;
 	}
 
-	if (speed != 0 && gear == 0)
+	if (gear == NEUTRAL)
 	{
 		return true;
+	}
+	if (speed < MIN_SPEED[gear] || speed > MAX_SPEED[gear])
+	{
+		return false;
+	}
 
-	}
-	if (speed < MIN_SPEED[gear])
-	{
-		return false;
-	}
-	if (speed > MAX_SPEED[gear])
-	{
-		return false;
-	}
 	if (gear == REVERSE)
 	{
 		SetDir(BACKWARD);
@@ -98,6 +88,7 @@ bool CCar::SetGear(int gear)
 		}
 
 	}
+	
 	if (CheckSpeed(gear, m_speed))//проверка входит ли скорость в дипозон данной передачи
 	{
 		direction = m_direction;
@@ -106,12 +97,8 @@ bool CCar::SetGear(int gear)
 			m_gear = gear;
 			return true;
 		}
-		return false;
 	}
-	else
-	{
-		return false;
-	}
+	return false;
 }
 
 bool CCar::SetSpeed(int speed)
@@ -133,16 +120,14 @@ bool CCar::SetSpeed(int speed)
 		m_speed = speed;
 		return true;
 	}
-	else
-	{
-		return false;
-	}
+	return false;
+
 }
 
-void CCar::SetDir(int speed)
+void CCar::SetDir(int direction)
 {
 
-	m_direction = speed;
+	m_direction = direction;
 }
 
 int CCar::GetGear() const
