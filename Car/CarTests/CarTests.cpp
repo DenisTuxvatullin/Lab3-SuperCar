@@ -3,6 +3,7 @@
 
 #include "stdafx.h"
 #include "..\Car\Car.h"
+const int REVERSE = 6, NEUTRAL = 0, FIRST = 1, SECOND = 2, THIRD = 3, FOUTH = 4, FIFTH = 5;
 
 struct CarFixture
 {

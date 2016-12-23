@@ -8,6 +8,7 @@
 #include <string>
 #include <cctype>
 using namespace std;
+const int INFO = 1, TURNED_ON = 2, TURNED_OFF = 3, SET_GEAR = 4, SET_SPEED = 5, PROG_EXIT = 6;
 
 void PrintProgramFunction()
 {
