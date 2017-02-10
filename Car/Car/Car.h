@@ -11,7 +11,6 @@ public:
 	bool TurnOffEngine();
 	bool SetGear(int gear);
 	bool SetSpeed(int speed);
-	void SetDir(int dir);
 
 	int GetGear() const;
 	int  GetSpeed() const;
@@ -19,6 +18,7 @@ public:
 	bool IsEngineTurnedOn() const;
 
 private:
+	void SetDir(int dir);
 	bool CheckSpeed(int gear, int speed);
 	bool m_engineIsTurnedOn;
 	int m_speed;
